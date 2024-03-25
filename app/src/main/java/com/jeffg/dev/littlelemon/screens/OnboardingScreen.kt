@@ -14,7 +14,7 @@ fun OnboardingScreen(navController: NavController) {
     Column(modifier = Modifier.fillMaxHeight()) {
         TopAppBarImageOnly()
         OnboardingSubHeader()
-        OnboardingBody()
+        OnboardingBody(navController)
 
     }
 }

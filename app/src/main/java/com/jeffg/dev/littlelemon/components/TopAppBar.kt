@@ -14,15 +14,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.jeffg.dev.littlelemon.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun TopAppBar(scaffoldState: ScaffoldState? = null, scope: CoroutineScope? = null) {
-    Row(horizontalArrangement = Arrangement.SpaceBetween,
-    modifier = Modifier.fillMaxWidth(),
-    verticalAlignment = Alignment.CenterVertically) {
+fun TopAppBar(
+    scaffoldState: ScaffoldState? = null,
+    scope: CoroutineScope? = null,
+    navController: NavController? = null
+) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         IconButton(onClick = {
             scope?.launch { scaffoldState?.drawerState?.open() }
         }) {
@@ -35,10 +42,11 @@ fun TopAppBar(scaffoldState: ScaffoldState? = null, scope: CoroutineScope? = nul
         Image(
             painter = painterResource(id = R.drawable.littlelemonimgtxt_nobg),
             contentDescription = "Little Lemon Logo",
-            modifier = Modifier.fillMaxWidth(0.5F)
+            modifier = Modifier
+                .fillMaxWidth(0.5F)
                 .padding(horizontal = 20.dp)
         )
-        IconButton(onClick = { }) {
+        IconButton(onClick = { navController?.navigate(MyProfile.route) }) {
             Image(
                 painter = painterResource(id = R.drawable.ic_cart),
                 contentDescription = "Cart",

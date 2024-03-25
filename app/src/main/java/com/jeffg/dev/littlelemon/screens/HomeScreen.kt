@@ -11,7 +11,7 @@ import com.jeffg.dev.littlelemon.components.UpperPanel
 @Composable
 fun HomeScreen(navController: NavHostController) {
     Column {
-        TopAppBar()
+        TopAppBar(navController = navController)
         UpperPanel()
         LowerPanel(navController, DishRepository.dishes)
     }
