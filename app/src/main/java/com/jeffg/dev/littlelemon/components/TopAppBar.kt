@@ -48,8 +48,8 @@ fun TopAppBar(
         )
         IconButton(onClick = { navController?.navigate(MyProfile.route) }) {
             Image(
-                painter = painterResource(id = R.drawable.ic_cart),
-                contentDescription = "Cart",
+                painter = painterResource(id = R.drawable.profile),
+                contentDescription = "Profile",
                 modifier = Modifier.size(24.dp)
             )
         }

@@ -1,6 +1,7 @@
 package com.jeffg.dev.littlelemon.components
 
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -21,6 +22,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -49,7 +51,7 @@ fun onRegistrationClicked(
     preferencesManager.saveData(PreferenceKey.FirstName, firstName)
     preferencesManager.saveData(PreferenceKey.LastName, lastName)
     preferencesManager.saveData(PreferenceKey.EmailAddress, emailAddress)
-    navController.navigate(Home.route)
+    navController.navigate(Home.route) { popUpTo(0) }
 }
 
 @Composable
@@ -128,7 +130,8 @@ fun OnboardingBody(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = RoundedCornerShape(8.dp)
+            shape = RoundedCornerShape(8.dp),
+            border = BorderStroke(1.dp, Color.Red)
         ) {
             Text(
                 text = stringResource(id = R.string.register)
