@@ -77,12 +77,12 @@ fun Counter() {
         ) {
             Text(
                 text = "-",
-                style = MaterialTheme.typography.h2
+                style = MaterialTheme.typography.h3
             )
         }
         Text(
             text = counter.toString(),
-            style = MaterialTheme.typography.h2,
+            style = MaterialTheme.typography.h3,
             modifier = Modifier.padding(16.dp)
         )
         TextButton(
@@ -92,7 +92,7 @@ fun Counter() {
         ) {
             Text(
                 text = "+",
-                style = MaterialTheme.typography.h2
+                style = MaterialTheme.typography.h3
             )
         }
     }

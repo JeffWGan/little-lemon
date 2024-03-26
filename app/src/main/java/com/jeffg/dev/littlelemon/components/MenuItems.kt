@@ -67,14 +67,14 @@ fun MenuDish(navController: NavHostController? = null, dish: MenuItemRoom) {
             Column(Modifier.padding(end = 8.dp)) {
                 Text(
                     text = dish.title,
-                    style = MaterialTheme.typography.h2
+                    style = MaterialTheme.typography.h3
                 )
                 Text(
                     text = dish.description,
                     style = MaterialTheme.typography.body1,
                     modifier = Modifier
                         .fillMaxWidth(0.75f)
-                        .padding(vertical = 5.dp)
+                        .padding(vertical = 8.dp)
                 )
                 Text(
                     text = "$${dish.price}",
@@ -90,5 +90,4 @@ fun MenuDish(navController: NavHostController? = null, dish: MenuItemRoom) {
             )
         }
     }
-
 }

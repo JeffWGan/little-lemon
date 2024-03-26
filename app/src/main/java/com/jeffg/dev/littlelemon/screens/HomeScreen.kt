@@ -50,7 +50,6 @@ fun HomeScreen(navController: NavHostController, homeViewModel: MainViewModel = 
         CategoryBar(
             listOf("All") + categories
         ) { category = it }
-
         MenuItems(navController, menuItems)
     }
 }

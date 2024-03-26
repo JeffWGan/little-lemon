@@ -14,20 +14,20 @@ val markazi = FontFamily(Font(R.font.markazi_text_regular))
 val Typography = Typography(
     h1 = TextStyle(
         fontFamily = markazi,
-        fontSize = 26.sp,
+        fontSize = 64.sp,
         fontWeight = FontWeight.Bold,
-        color = LittleLemonColor.charcoal
+        color = LittleLemonColor.yellow
     ),
     h2 = TextStyle(
-        fontFamily = karla,
-        color = LittleLemonColor.charcoal,
-        fontSize = 18.sp,
+        fontFamily = markazi,
+        color = LittleLemonColor.cloud,
+        fontSize = 40.sp,
         fontWeight = FontWeight.Bold
     ),
     h3 = TextStyle(
-        fontFamily = markazi,
+        fontFamily = karla,
         color = LittleLemonColor.charcoal,
-        fontSize = 16.sp,
+        fontSize = 18.sp,
         fontWeight = FontWeight.Bold
     ),
     h4 = TextStyle(
@@ -44,7 +44,8 @@ val Typography = Typography(
     body2 = TextStyle(
         fontFamily = karla,
         fontWeight = FontWeight.Bold,
-        color = LittleLemonColor.green
+        color = LittleLemonColor.green,
+        fontSize = 16.sp,
     ),
     subtitle1 = TextStyle(
         fontFamily = karla,

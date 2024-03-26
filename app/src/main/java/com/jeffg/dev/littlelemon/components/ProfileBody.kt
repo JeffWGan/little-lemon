@@ -67,7 +67,7 @@ fun ProfileBody(
             }
             Text(
                 text = "Personal Information",
-                style = MaterialTheme.typography.h2,
+                style = MaterialTheme.typography.h3,
                 modifier = Modifier.padding(bottom = 40.dp)
             )
             OutlinedTextField(
