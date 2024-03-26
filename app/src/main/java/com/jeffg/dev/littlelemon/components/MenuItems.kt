@@ -1,13 +1,10 @@
 package com.jeffg.dev.littlelemon.components
 
-import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
@@ -18,56 +15,58 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.jeffg.dev.littlelemon.R
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+import com.jeffg.dev.littlelemon.data.database.MenuItemRoom
 import com.jeffg.dev.littlelemon.ui.theme.LittleLemonColor
 
 @Composable
-fun LowerPanel(navController: NavHostController, dishes: List<Dish> = listOf()) {
+fun MenuItems(
+    navController: NavHostController,
+    menuItems: List<MenuItemRoom>,
+) {
     Column {
-        WeeklySpecialCard()
+        Divider(
+            modifier = Modifier.padding(start = 8.dp, end = 8.dp),
+            thickness = 1.dp,
+            color = Color.Gray,
+        )
         LazyColumn {
-            itemsIndexed(dishes) { _, dish ->
-                MenuDish(navController, dish)
-            }
+            items(
+                count = menuItems.size,
+                key = { menuItems[it].id },
+                itemContent = { index ->
+                    val dish = menuItems[index]
+                    MenuDish(navController, dish)
+                    Divider(
+                        modifier = Modifier.padding(start = 8.dp, end = 8.dp),
+                        thickness = 1.dp,
+                        color = LittleLemonColor.yellow,
+                    )
+                }
+            )
         }
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class, ExperimentalGlideComposeApi::class)
 @Composable
-fun WeeklySpecialCard() {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        Text(
-            text = stringResource(R.string.weekly_special),
-            style = MaterialTheme.typography.h1,
-            modifier = Modifier
-                .padding(8.dp)
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun MenuDish(navController: NavHostController? = null, dish: Dish) {
+fun MenuDish(navController: NavHostController? = null, dish: MenuItemRoom) {
     Card(onClick = {
-        Log.d("AAA", "Click ${dish.id}")
         navController?.navigate(DishDetails.route + "/${dish.id}")
     }) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(16.dp)
         ) {
-            Column {
+            Column(Modifier.padding(end = 8.dp)) {
                 Text(
-                    text = dish.name,
+                    text = dish.title,
                     style = MaterialTheme.typography.h2
                 )
                 Text(
@@ -82,18 +81,14 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
                     style = MaterialTheme.typography.body2
                 )
             }
-            Image(
-                painter = painterResource(id = dish.imageResource),
-                contentDescription = "Dish image",
+            GlideImage(
+                model = dish.imageUrl,
+                contentDescription = dish.title,
                 modifier = Modifier.clip(
                     RoundedCornerShape(10.dp)
                 )
             )
         }
     }
-    Divider(
-        modifier = Modifier.padding(start = 8.dp, end = 8.dp),
-        thickness = 1.dp,
-        color = LittleLemonColor.yellow,
-    )
+
 }

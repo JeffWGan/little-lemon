@@ -10,7 +10,9 @@ import com.jeffg.dev.littlelemon.components.OnboardingSubHeader
 import com.jeffg.dev.littlelemon.components.TopAppBarImageOnly
 
 @Composable
-fun OnboardingScreen(navController: NavController) {
+fun OnboardingScreen(
+    navController: NavController,
+) {
     Column(modifier = Modifier.fillMaxHeight()) {
         TopAppBarImageOnly()
         OnboardingSubHeader()

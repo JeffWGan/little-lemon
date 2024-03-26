@@ -21,12 +21,22 @@ val Typography = Typography(
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold
     ),
+    h4 = TextStyle(
+        color = LittleLemonColor.charcoal,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold
+    ),
     body1 = TextStyle(
-        color = LittleLemonColor.green
+        color = LittleLemonColor.green,
+        fontSize = 16.sp,
     ),
     body2 = TextStyle(
         fontWeight = FontWeight.Bold,
         color = LittleLemonColor.green
+    ),
+    subtitle1 = TextStyle(
+        color = LittleLemonColor.charcoal,
+        fontSize = 14.sp,
     ),
     button = TextStyle(
         fontSize = 14.sp,
