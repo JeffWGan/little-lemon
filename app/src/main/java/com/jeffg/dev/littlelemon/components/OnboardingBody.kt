@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -141,7 +142,8 @@ fun OnboardingBody(navController: NavController) {
             onClick = { onRegistrationClicked(navController, firstName, lastName, email) },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 16.dp),
+                .height(36.dp),
+
             shape = Shapes.medium,
             border = BorderStroke(1.dp, Color.Red)
         ) {
