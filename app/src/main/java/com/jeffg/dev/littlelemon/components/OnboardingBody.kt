@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
@@ -32,6 +31,7 @@ import androidx.navigation.NavController
 import com.jeffg.dev.littlelemon.R
 import com.jeffg.dev.littlelemon.data.PreferenceKey
 import com.jeffg.dev.littlelemon.data.PreferencesManager
+import com.jeffg.dev.littlelemon.ui.theme.Shapes
 
 fun onRegistrationClicked(
     navController: NavController,
@@ -92,7 +92,7 @@ fun OnboardingBody(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = RoundedCornerShape(8.dp)
+            shape = Shapes.medium
         )
         OutlinedTextField(value = lastName,
             maxLines = 1,
@@ -106,7 +106,7 @@ fun OnboardingBody(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = RoundedCornerShape(8.dp)
+            shape = Shapes.medium
         )
         OutlinedTextField(
             value = email,
@@ -122,7 +122,7 @@ fun OnboardingBody(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = RoundedCornerShape(8.dp)
+            shape = Shapes.medium
         )
         Spacer(modifier = Modifier.weight(1f))
         Button(
@@ -130,7 +130,7 @@ fun OnboardingBody(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = RoundedCornerShape(8.dp),
+            shape = Shapes.medium,
             border = BorderStroke(1.dp, Color.Red)
         ) {
             Text(

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
@@ -27,6 +26,7 @@ import androidx.navigation.NavController
 import com.jeffg.dev.littlelemon.R
 import com.jeffg.dev.littlelemon.data.PreferenceKey
 import com.jeffg.dev.littlelemon.data.PreferencesManager
+import com.jeffg.dev.littlelemon.ui.theme.Shapes
 
 fun onLogoutClicked(navController: NavController) {
     val preferencesManager = PreferencesManager(navController.context)
@@ -71,7 +71,7 @@ fun ProfileBody(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 16.dp),
-                shape = RoundedCornerShape(8.dp)
+                shape = Shapes.medium
             )
             OutlinedTextField(
                 value = lastName,
@@ -81,7 +81,7 @@ fun ProfileBody(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 16.dp),
-                shape = RoundedCornerShape(8.dp)
+                shape = Shapes.medium
             )
             OutlinedTextField(
                 value = email,
@@ -91,7 +91,7 @@ fun ProfileBody(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 16.dp),
-                shape = RoundedCornerShape(8.dp)
+                shape = Shapes.medium
             )
         }
 
@@ -101,7 +101,7 @@ fun ProfileBody(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
-            shape = RoundedCornerShape(8.dp),
+            shape = Shapes.medium,
             border = BorderStroke(1.dp, Color.Red)
         ) {
             Text(
