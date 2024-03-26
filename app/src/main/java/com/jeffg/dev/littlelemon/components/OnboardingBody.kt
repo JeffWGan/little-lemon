@@ -31,6 +31,7 @@ import androidx.navigation.NavController
 import com.jeffg.dev.littlelemon.R
 import com.jeffg.dev.littlelemon.data.PreferenceKey
 import com.jeffg.dev.littlelemon.data.PreferencesManager
+import com.jeffg.dev.littlelemon.data.isValidEmail
 import com.jeffg.dev.littlelemon.ui.theme.Shapes
 
 fun onRegistrationClicked(
@@ -38,10 +39,21 @@ fun onRegistrationClicked(
     firstName: String, lastName: String, emailAddress: String
 ) {
     val context = navController.context
-    if (firstName.isBlank() || lastName.isBlank() || emailAddress.isBlank()) {
+    if (firstName.isBlank() || lastName.isBlank() || emailAddress.isBlank()
+    ) {
         Toast.makeText(
             context,
             "Registration unsuccessful. Please enter all data.",
+            Toast.LENGTH_LONG
+        ).show()
+        return
+    } else if (!isValidEmail(
+            emailAddress
+        )
+    ) {
+        Toast.makeText(
+            context,
+            "Registration unsuccessful. Please enter a valid email",
             Toast.LENGTH_LONG
         ).show()
         return

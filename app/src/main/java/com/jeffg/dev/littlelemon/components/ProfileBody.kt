@@ -22,20 +22,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.jeffg.dev.littlelemon.MainViewModel
 import com.jeffg.dev.littlelemon.R
 import com.jeffg.dev.littlelemon.data.PreferenceKey
 import com.jeffg.dev.littlelemon.data.PreferencesManager
 import com.jeffg.dev.littlelemon.ui.theme.Shapes
 
-fun onLogoutClicked(navController: NavController) {
+fun onLogoutClicked(navController: NavController, viewModel: MainViewModel) {
     val preferencesManager = PreferencesManager(navController.context)
     preferencesManager.clearData()
+    viewModel.clearData()
     navController.navigate(Onboarding.route) { popUpTo(0) }
 }
 
 @Composable
-fun ProfileBody(navController: NavController) {
+fun ProfileBody(
+    navController: NavController,
+    viewModel: MainViewModel = viewModel()
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -97,7 +103,7 @@ fun ProfileBody(navController: NavController) {
 
         Spacer(modifier = Modifier.weight(1f))
         Button(
-            onClick = { onLogoutClicked(navController) },
+            onClick = { onLogoutClicked(navController, viewModel) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
