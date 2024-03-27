@@ -60,7 +60,7 @@ private fun List<MenuItemRoom>.filterByTitle(phrase: String): List<MenuItemRoom>
         this
     } else {
         filter {
-            it.title.lowercase().contains(phrase.lowercase())
+            it.title.contains(phrase, ignoreCase = true)
         }
     }
 
