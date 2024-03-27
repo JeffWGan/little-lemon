@@ -7,6 +7,6 @@ import com.jeffg.dev.littlelemon.components.TopAppBarImageOnly
 
 @Composable
 fun ProfileScreen(navController: NavController) {
-    TopAppBarImageOnly()
+    TopAppBarImageOnly(showBackButton = true, navController = navController)
     ProfileBody(navController = navController)
 }
